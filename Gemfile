@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rake'
 gem 'sinatra', '~> 1.2.3'
@@ -6,6 +7,7 @@ gem 'shotgun', '~> 0.9'
 gem 'haml', '~> 3.1.4'
 gem 'datamapper'
 gem 'dm-postgres-adapter'
+gem 'dm-sqlite-adapter'
 
 # Sass & Compass
 gem 'sass', '~> 3.1.12'

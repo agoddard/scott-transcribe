@@ -55,7 +55,7 @@ get '/transcribe/dates/:page' do
 end
 
 post '/transcribe/dates/:page' do
-  page = Page.get(params['page'])
+  page = Page.get(params['page']) || Page.all.sample
   time = convert_date(params['day'].to_i,params['month'].to_i,params['time'])
   Record.create(:page => page, :time => time, :created_at => Time.now, :updated_at => Time.now)
   redirect "/transcribe/dates/#{params['page']}"
