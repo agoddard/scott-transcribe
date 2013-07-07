@@ -1,6 +1,6 @@
 # initialize db connection
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/transcribe.db"
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/transcribe.db")
 
 class Observation
   include DataMapper::Resource
