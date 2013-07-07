@@ -79,6 +79,8 @@ post '/transcribe/observations/' do
   :cloud_direction_upper => params['cloud_direction_upper'],
   :cloud_direction_lower => params['cloud_direction_lower'],
   :minimum_temp => params['minimum_temp'],
+  :remarks => params['remarks'],
+  :transcriber => params['transcriber']
   :ip_address => request.ip
   )
   redirect "/transcribe/observations/#{params['page']}"
