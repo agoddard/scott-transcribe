@@ -1,8 +1,17 @@
 #viewer
-  %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=90%&height=400px"}
-%h2
-  Please enter a date and time you see in the column "Day" and "Hour" under the "Time" heading
-  
+  %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=100%&height=400px"}
+  -percent = existing.count.to_f/15*100.round
+%h2="Existing records for this page (Approx #{percent.round(0)}% complete):"
+#existing
+  %table.table
+    %tbody
+      %th Day
+      %th Hour
+      - existing.each do |record|
+        %tr
+          %td= record.time.strftime("%B %d")
+          %td= record.time.strftime("%-H.%M")
+%h2 Please enter a date and time you see in the column "Day" and "Hour" under the "Time" heading  
 
 #addform
   %form{ :action => "", :method => "post"}
@@ -31,14 +40,3 @@
               -else
                 =time
     %input{:type => "submit", :value => "Add", :class => "button"}
-      
-%h2
-  Existing records for this page:
-%table
-  %tbody
-    %th Day
-    %th Hour
-    - existing.each do |record|
-      %tr
-        %td= record.time.strftime("%B %d")
-        %td= record.time.strftime("%-H.%M")

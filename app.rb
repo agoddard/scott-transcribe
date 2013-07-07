@@ -34,11 +34,11 @@ get '/' do
   haml :index, :layout => :'layouts/application'
 end
 
-get '/begin' do
+get '/begin/?' do
  redirect "/transcribe/observations/"
 end
 
-get '/transcribe/observations/' do
+get '/transcribe/observations/?' do
   #grab a random record for observations
   record = Record.all.sample
   haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id}

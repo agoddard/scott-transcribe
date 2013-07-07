@@ -22,6 +22,7 @@ class Observation
   property :minimum_temp,           String   # Minimum
   property :remarks,                Text
   property :ip_address,             String   #IP address that added the record
+  property :transcriber,            String
   property :created_at,             DateTime
   property :updated_at,             DateTime
 end

@@ -114,6 +114,8 @@ body ul li a:hover {
 }
 
 #addform {
+  width: 400px;
+  display: inline-block;
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -126,4 +128,14 @@ body ul li a:hover {
 
 #addform input {
   display:inline !important;
+}
+
+#existing {
+  width: 400px;
+  display: inline-block;
+}
+
+#existing table, th, td {
+  border: 1px solid white;
+  width: 20%;
 }
