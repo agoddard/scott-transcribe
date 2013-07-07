@@ -1,0 +1,41 @@
+#header
+  %h1= "Please enter data for #{time.strftime("%B %d, %-H.%M")}"
+  %h2
+    Double click to zoom, or use the on-screen controls to navigate the page.
+#viewer
+  %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=100%&height=400px"}
+#addform
+  %p= "You are entering data for the record on #{time.strftime("%B %d, %-H.%M")}"
+  %p Enter the data exactly as it appears, for fractions use the decimal equivelent. Please complete every field, if the table in the book shows a dash, simply enter "-". Adding your name at the end is optional but appreciated.
+  %form{ :action => "", :method => "post"}
+    %fieldset
+      %label{:for => "position_camp"} Number of Camp
+      %input{:type => "text", :name => "position_camp", :class => "text"}
+      %label{:for => "position_lat"} Position - Lat. S.
+      %input{:type => "text", :name => "position_lat", :class => "text"}
+      %label{:for => "position_long"} Position - Long. E.
+      %input{:type => "text", :name => "position_long", :class => "text"}
+      %label{:for => "barometer"} Barometer
+      %input{:type => "text", :name => "barometer", :class => "text"}
+      %label{:for => "temp"} Dry Bulb Temp.
+      %input{:type => "text", :name => "temp", :class => "text"}
+      %label{:for => "wind_direction"} Wind - Direction (True)
+      %input{:type => "text", :name => "wind_direction", :class => "text"}
+      %label{:for => "wind_force"} Wind - Force (0-12)
+      %input{:type => "text", :name => "wind_force", :class => "text"}
+      %label{:for => "beaufort"} Weather (Beaufort Notation)
+      %input{:type => "text", :name => "beaufort", :class => "text"}
+      %label{:for => "cloud_amount"} Cloud - Amount (0-10)
+      %input{:type => "text", :name => "cloud_amount", :class => "text"}
+      %label{:for => "cloud_kind"} Cloud - Kind
+      %input{:type => "text", :name => "cloud_kind", :class => "text"}
+      %label{:for => "cloud_direction_upper"} Cloud - Direction from - Upper
+      %input{:type => "text", :name => "cloud_direction_upper", :class => "text"}
+      %label{:for => "cloud_direction_lower"} Cloud - Direction from - Lower
+      %input{:type => "text", :name => "cloud_direction_lower", :class => "text"}
+      %label{:for => "minimum_temp"} Minimum Tempreature
+      %input{:type => "text", :name => "minimum_temp", :class => "text"} 
+      %label{:for => "remarks"} Remarks
+      %textarea{:name => "remarks"}
+      %input{:type => "hidden", :name => "record", :value => record_id} 
+    %input{:type => "submit", :value => "Add observation", :class => "button"}

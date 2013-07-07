@@ -1,0 +1,44 @@
+#viewer
+  %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=90%&height=400px"}
+%h2
+  Please enter a date and time you see in the column "Day" and "Hour" under the "Time" heading
+  
+
+#addform
+  %form{ :action => "", :method => "post"}
+    %fieldset
+      %label{:for => "month"} Month:
+      %select{:name => "month"}
+        %option{:value => 11} November
+        %option{:value => 12} December
+        %option{:value => 01} January
+        %option{:value => 02} February
+        %option{:value => 03} March
+      %label{:for => "mail"} Day:
+      %select{:name => "day"}
+        -1.upto(31).each do |day|
+          %option= day
+      %label{:for => "time"} Hour:
+      %select{:name => "time"}
+        -0.upto(24).each do |hour|
+          -[0,15,30,45].each do |minute|
+            -time = "#{"%02d" % hour}.#{"%02d" % minute}"
+            %option{:value => time}<
+              -if hour == 12 && minute == 0
+                ='Noon' + " (#{time})"
+              -elsif hour == 0 && minute == 0
+                ='Midt.' + " (#{time})"
+              -else
+                =time
+    %input{:type => "submit", :value => "Add", :class => "button"}
+      
+%h2
+  Existing records for this page:
+%table
+  %tbody
+    %th Day
+    %th Hour
+    - existing.each do |record|
+      %tr
+        %td= record.time.strftime("%B %d")
+        %td= record.time.strftime("%-H.%M")
