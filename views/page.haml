@@ -1,10 +1,12 @@
 #header
   %h3.center Please enter data for
-  %h1= "#{formatted_time}"
+  %h1= formatted_time
 #viewer
   %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=100%&height=400px"}
 #add
   #addform
+    %h4= formatted_time
+    %p &nbsp;
     %form{ :action => "", :method => "post"}
       %fieldset
         %label{:for => "position_camp"} Number of Camp
