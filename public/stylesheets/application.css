@@ -14,8 +14,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
+/*  font-size: 100%;*/
+/*  font: inherit;*/
   vertical-align: baseline;
 }
 
@@ -113,11 +113,24 @@ body ul li a:hover {
   margin-left: 20px;
 }
 
+#header h2 {
+  
+}
+
 #addform {
+  float:left;
+  overflow-y:scroll;
   width: 400px;
+  height: 200px;
   display: inline-block;
   margin-left: 20px;
   margin-bottom: 20px;
+}
+
+#helptip {
+  float: left;
+  width: 300px;
+  margin:auto;
 }
 
 #addform li {

@@ -28,6 +28,16 @@ def convert_date(day,month,time) #returns UTC DateTime
   DateTime.new(year,month,day,hour,min,00,'+0')
 end
 
+def format_time(time)
+  if time.hour == 0
+    time.strftime("%B %d, %-H.%M (Midt.)")
+  elsif time.hour == 12
+    time.strftime("%B %d, %-H.%M (Noon.)")
+  else
+    time.strftime("%B %d, %-H.%M")
+  end
+end
+
 @@pages = Page.all.map{|p| p.id}
 
 get '/' do
@@ -39,9 +49,13 @@ get '/begin/?' do
 end
 
 get '/transcribe/observations/?' do
-  #grab a random record for observations
+
   record = Record.all.sample
-  haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id}
+  #TODO update this to grab a random record with the equal least observations
+  # least_obs = Record.all.map{|record|record.observations.count}.sort.first
+  observations = record.observations
+  puts observations.count
+  haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id, :formatted_time => format_time(record.time)}
 end
 
 get '/transcribe/dates/:page' do
