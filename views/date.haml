@@ -1,5 +1,5 @@
 #header
-  %h3 Please enter a date and time you see in the column "Day" and "Hour" under the "Time" heading
+  %h3.center Please enter a date and time you see in the column "Day" and "Hour" under the "Time" heading
 #viewer
   %script{:type => "text/javascript", :src => "http://zoom.it/#{page}.js?width=100%&height=400px"}
   -percent = existing.count.to_f/15*100.round
@@ -30,15 +30,18 @@
                   ='Midt.' + " (#{time})"
                 -else
                   =time
-      %input{:type => "submit", :value => "Add", :class => "button"}
+      %input{:type => "submit", :value => "Add date", :class => "button"}
   #helptip
-    %p="Existing records for this page:"
-    #existing
-      %table
-        %tbody
-          %th Day
-          %th Hour
-          - existing.each do |record|
-            %tr
-              %td= record.time.strftime("%B %d")
-              %td= record.time.strftime("%-H.%M")
+    -if existing.count == 0
+      %p No dates have been added yet for this page
+    -else
+      %p="Existing records for this page:"
+      #existing
+        %table
+          %tbody
+            %th Day
+            %th Hour
+            - existing.each do |record|
+              %tr
+                %td= record.time.strftime("%B %d")
+                %td= record.time.strftime("%-H.%M")
