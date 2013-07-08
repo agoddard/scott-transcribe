@@ -30,11 +30,11 @@ end
 
 def format_time(time)
   if time.hour == 0
-    time.strftime("%B %d, %-H.%M (Midt.)")
+    time.strftime("Day: %B %d, Time: Midt.")
   elsif time.hour == 12
-    time.strftime("%B %d, %-H.%M (Noon.)")
+    time.strftime("Day: %B %d, Time: Noon.")
   else
-    time.strftime("%B %d, %-H.%M")
+    time.strftime("Day: %B %d, Time: %-H.%M (%p)")
   end
 end
 

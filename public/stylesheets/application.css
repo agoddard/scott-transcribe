@@ -145,10 +145,19 @@ body ul li a:hover {
 
 #existing {
   width: 400px;
-  display: inline-block;
+/*  display: inline-block;*/
 }
 
-#existing table, th, td {
+#existing table th, td {
   border: 1px solid white;
-  width: 20%;
+  width: 30px;
+}
+
+#existing th, td {
+  border: 1px solid white;
+  white-space: nowrap;
+  padding: 3px;
+}
+h3.center {
+  text-align: center;
 }
