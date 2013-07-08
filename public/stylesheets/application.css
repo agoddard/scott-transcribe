@@ -161,3 +161,15 @@ body ul li a:hover {
 h3.center {
   text-align: center;
 }
+
+#welcome {
+  text-align: left;
+  width: 800px;
+  height: 200px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
