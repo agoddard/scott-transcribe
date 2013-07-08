@@ -104,6 +104,8 @@ body ul li a:hover {
 }
 
 #viewer {
+  float: left;
+  width: 63%;
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
@@ -117,20 +119,24 @@ body ul li a:hover {
   
 }
 
-#addform {
+
+#add {
   float:left;
-  overflow-y:scroll;
-  width: 400px;
-  height: 200px;
+  width: 28%;
+}
+
+#addform {
+/*  overflow-y:scroll;*/
+/*  height: 200px;*/
   display: inline-block;
-  margin-left: 20px;
+  padding-left: 20px;
+  margin-top:60px;
   margin-bottom: 20px;
 }
 
 #helptip {
-  float: left;
-  width: 300px;
-  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #addform li {
@@ -153,6 +159,10 @@ body ul li a:hover {
   width: 30px;
 }
 
+#existing h4 {
+  margin-bottom: 10px;;
+}
+
 #existing th, td {
   border: 1px solid white;
   white-space: nowrap;
@@ -172,4 +182,8 @@ h3.center {
   left: 0;
   right: 0;
   margin: auto;
+}
+
+#container {
+  width:100%;
 }
