@@ -126,8 +126,6 @@ body ul li a:hover {
 }
 
 #addform {
-/*  overflow-y:scroll;*/
-/*  height: 200px;*/
   display: inline-block;
   padding-left: 20px;
   margin-top:60px;
