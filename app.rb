@@ -49,10 +49,8 @@ get '/begin/?' do
 end
 
 get '/transcribe/observations/?' do
-  record = Record.all.sample
-  #TODO update this to grab a random record with the equal least observations
-  # least_obs = Record.all.map{|record|record.observations.count}.sort.first
-  # observations = record.observations
+  #only grab Recods that have less than 4 observations
+  record = Record.all.select { |record|  record.observations.count < 4 }.sample
   haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id, :formatted_time => format_time(record.time)}
 end
 
