@@ -24,7 +24,7 @@
                 %option{:value => time}<
                   -if hour == 12 && minute == 0
                     ='Noon' + " (#{time})"
-                  -elsif hour == 0 && minute == 0
+                  -elsif hour == 24 && minute == 0
                     ='Midt.' + " (#{time})"
                   -else
                     =time
