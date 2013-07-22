@@ -49,10 +49,19 @@ get '/begin/?' do
 end
 
 get '/transcribe/observations/?' do
-  #only grab Recods that have less than 4 observations
-  record = Record.all.select { |record|  record.observations.count < 4 }.sample
-  haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id, :formatted_time => format_time(record.time)}
+  #only grab Recods that have less than 4 observations, unless limit is set 
+  if params[:limit] == "single" # pre-production only #TODO remove in production
+    record = Record.all.select { |record|  record.observations.count == 0 }.sample
+  else
+    record = Record.all.select { |record|  record.observations.count < 4 }.sample
+  end
+  unless record.nil?
+    haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id, :formatted_time => format_time(record.time)}
+  else
+    haml :finished, :layout => :'layouts/application'
+  end
 end
+
 
 get '/transcribe/dates/:page' do
   # get existing records for this page
