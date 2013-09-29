@@ -11,7 +11,6 @@ gem 'shotgun'
 gem 'haml'
 gem 'datamapper'
 gem 'dm-postgres-adapter'
-gem 'newrelic_rpm'
 
 # Sass & Compass
 gem 'sass'

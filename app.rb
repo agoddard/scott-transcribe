@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'newrelic_rpm'
 
 # Helpers
 require './lib/render_partial'
