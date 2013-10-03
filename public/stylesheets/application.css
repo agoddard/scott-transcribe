@@ -55,10 +55,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 a {
-  color: #3366cc;
+  color: #419CC6;
 }
 a:hover {
-  color: #3366cc;
+  color: #419CC6;
   text-decoration: none;
 }
 a:focus, a:active {
@@ -185,3 +185,5 @@ h3.center {
 #container {
   width:100%;
 }
+
+h1.time {color: #419CC6}
