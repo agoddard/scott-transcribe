@@ -43,6 +43,14 @@ get '/' do
   haml :index, :layout => :'layouts/application'
 end
 
+get '/about' do
+  haml :about, :layout => :'layouts/application'
+end
+
+get '/contact' do
+  haml :contact, :layout => :'layouts/application'
+end
+
 get '/begin/?' do
  redirect "/transcribe/observations/"
 end
