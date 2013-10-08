@@ -99,6 +99,12 @@ body ul li a {
   color: black;
   text-decoration: none;
 }
+
+li.transcribed {
+  color: black;
+  float: right;
+}
+
 body ul li a:hover {
   text-decoration: underline;
 }

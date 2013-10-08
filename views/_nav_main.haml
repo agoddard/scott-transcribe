@@ -11,3 +11,5 @@
     %a{:href => "/contact"} Contact
   %li
     %a{:href => "http://scottexpedition.com"} The Scott Expedition
+  %li.transcribed
+    ="#{Record.all.count / (Observation.all.count * 4) * 100}% of records transcribed"
