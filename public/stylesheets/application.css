@@ -203,6 +203,9 @@ h3.center {
 #about h2 {
   margin-top:20px;
 }
+#about p {
+  margin-bottom: 10px;
+}
 
 #container {
   width:100%;
