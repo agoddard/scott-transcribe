@@ -11,6 +11,3 @@
     %a{:href => "/contact"} Contact
   %li
     %a{:href => "http://scottexpedition.com"} The Scott Expedition
-  %li.transcribed
-    -@count = Observation.count/Record.count * 4
-    ="#{@count * 100}% of records transcribed"
