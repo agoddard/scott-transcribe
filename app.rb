@@ -16,8 +16,8 @@ ENV['TZ'] = 'UTC' # we want to keep everything UTC
 
 require "#{settings.root}/db.rb"
 
-def records_remaining(key_number)
-  record = Record.all.select { |record|  record.observations.count < key_number }.count
+def initial_observation_count
+  record = Record.all.select { |record|  record.observations.count > 0 }.count
 end
 
 
