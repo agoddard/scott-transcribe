@@ -16,6 +16,10 @@ ENV['TZ'] = 'UTC' # we want to keep everything UTC
 
 require "#{settings.root}/db.rb"
 
+def records_remaining(key_number)
+  record = Record.all.select { |record|  record.observations.count < key_number }.count
+end
+
 
 def convert_date(day,month,time) #returns UTC DateTime
   hour,min = time.split(".").map{|a|a.to_i}
@@ -60,7 +64,7 @@ get '/transcribe/observations/?' do
   if params[:limit] == "single" # pre-production only #TODO remove in production
     record = Record.all.select { |record|  record.observations.count == 0 }.sample
   else
-    record = Record.all.select { |record|  record.observations.count < 4 }.sample
+    record = Record.all.select { |record|  record.observations.count < 3 }.sample
   end
   unless record.nil?
     haml :page, :layout => :'layouts/application', :locals => {:record_id => record.id, :time => record.time, :page => record.page.id, :formatted_time => format_time(record.time)}
